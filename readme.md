@@ -2,6 +2,8 @@
 This is a simple repo to simulate setting up a docker container for a hacker named James.
 It includes a Dockerfile and a build script to create the container.
 
+Happy pen-testing lessons!
+
 # Dockerfile
 The Dockerfile sets up a basic environment with essential tools for hacking. It installs necessary packages and
 configures the container to run a simple script.
