@@ -7,6 +7,7 @@ services:
     tty: true
     environment:
       - NGINX_API_URL=http://nginx-api:80
+      - POSTGRES_DB_URL=postgres://myuser:mypassword@db:5432/mydatabase
 
   nginx-api:
     build:
@@ -15,3 +16,17 @@ services:
     container_name: nginx_api_container
     ports:
       - "8080:80"
+  db:
+    image: postgres:16
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
