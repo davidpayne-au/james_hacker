@@ -9,3 +9,8 @@ configures the container to run a simple script.
 The build script automates the process of building the Docker image. It can be run to create the container with all the necessary tools installed.
 # my_hack.sh
 This script is a placeholder for any hacking-related commands or scripts that James might want to run inside the Docker container. It can be customized as needed.
+
+
+# How to connect to the container so you can run commands
+
+`docker exec -it james_hacker_container /bin/bash`

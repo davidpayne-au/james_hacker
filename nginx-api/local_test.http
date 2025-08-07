@@ -1,0 +1,36 @@
+// this file is used to test the API locally, it is a simple way to test the API without using Postman or other tools
+
+// https://learn.microsoft.com/en-us/aspnet/core/test/http-files?view=aspnetcore-8.0
+
+// In Visual Studio, this http file will be read and executed normally, on VSCode, you should install the extension named humao.rest-client by Huachao Mao https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+@HostAddress = http://localhost:8080
+
+// read the API key from an environment variable by setting it with 
+// export Security__ApiKey="1234" 
+// or override with an explicit value here
+# @ApiKey = {{$processEnv Security__ApiKey}}
+// we are doing a very very simple test so put the key in here raw (not recommended normally!)
+@ApiKey = your-api-key
+
+### Get health
+GET {{HostAddress}}/api/v1/health
+Accept: application/json
+
+### Get orders
+GET {{HostAddress}}/api/v1/orders
+Accept: application/json
+
+### Get endpoint1
+GET {{HostAddress}}/api/v1/endpoint1
+Accept: application/json
+
+### Get endpoint2
+GET {{HostAddress}}/api/v1/endpoint2
+Accept: application/json
+
+### Get secured_endpoint
+GET {{HostAddress}}/api/v1/secured_endpoint
+Accept: application/json
+X-API-Key: {{ ApiKey }}
+

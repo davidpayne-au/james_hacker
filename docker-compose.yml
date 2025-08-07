@@ -1,0 +1,17 @@
+services:
+  james_hacker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: james_hacker_container
+    tty: true
+    environment:
+      - NGINX_API_URL=http://nginx-api:80
+
+  nginx-api:
+    build:
+      context: ./nginx-api
+      dockerfile: Dockerfile
+    container_name: nginx_api_container
+    ports:
+      - "8080:80"
